@@ -101,7 +101,6 @@ public class SubmissionActivity extends AppCompatActivity {
 
                 submit();
                 alertDialog.dismiss();
-                success();
             }
         });
 
@@ -129,30 +128,35 @@ public class SubmissionActivity extends AppCompatActivity {
         if (firstName.isEmpty()){
             editTextFirstName.setError("This field cannot be empty");
             editTextFirstName.requestFocus();
+            failure();
             return;
         }
 
         if (email.isEmpty()){
             editTextEmail.setError("This field cannot be empty");
             editTextEmail.requestFocus();
+            failure();
             return;
         }
 
         if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
             editTextEmail.setError("Enter a valid email");
             editTextEmail.requestFocus();
+            failure();
             return;
         }
 
         if (lastName.isEmpty()){
             editTextLastName.setError("This field cannot be empty");
             editTextLastName.requestFocus();
+            failure();
             return;
         }
 
         if (link.isEmpty()){
             editTextLink.setError("This field cannot be empty");
             editTextLink.requestFocus();
+            failure();
             return;
         }
 
@@ -166,22 +170,14 @@ public class SubmissionActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
 
-                Toast.makeText(SubmissionActivity.this, "working", Toast.LENGTH_SHORT).show();
-/*
-                try{
-                    //String s = response.body().string();
-                    Toast.makeText(SubmissionActivity.this, "working", Toast.LENGTH_SHORT).show();
-
-                } catch (IOException e){
-                    e.printStackTrace();
-
-                } */
+                success();
 
             }
 
             @Override
             public void onFailure(Call<ResponseBody> call, Throwable t) {
                 Toast.makeText(SubmissionActivity.this, t.getMessage(), Toast.LENGTH_SHORT).show();
+                failure();
 
             }
         });

@@ -53,7 +53,7 @@ public class HomeActivity extends AppCompatActivity {
 
         //Adding Fragments
 
-        adapter.AddFragment(new FragmentLearners(), "Leading Leaders");
+        adapter.AddFragment(new FragmentLearners(), "Leading Learners");
         adapter.AddFragment(new FragmentSkillIQ(), "Skill IQ Leaders");
         viewPager.setAdapter(adapter);
         tabLayout.setupWithViewPager(viewPager);
