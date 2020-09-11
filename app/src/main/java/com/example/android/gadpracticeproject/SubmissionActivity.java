@@ -1,5 +1,6 @@
 package com.example.android.gadpracticeproject;
 
+import android.support.design.widget.AppBarLayout;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -11,6 +12,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
+import android.support.v7.widget.Toolbar;
 
 import okhttp3.ResponseBody;
 import retrofit2.Call;
@@ -23,6 +25,8 @@ public class SubmissionActivity extends AppCompatActivity {
     Button submit_button;
     CardView successCardview, warningCardview;
 
+    Toolbar mToolbar;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +38,13 @@ public class SubmissionActivity extends AppCompatActivity {
         editTextEmail = findViewById(R.id.email);
         editTextLink = findViewById(R.id.link);
         submit_button = findViewById(R.id.project_sub);
+        mToolbar = findViewById(R.id.toolbar);
+
+        setSupportActionBar(mToolbar);
+        getSupportActionBar().setTitle("");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+
 
 
         submit_button.setOnClickListener(new View.OnClickListener() {
@@ -77,6 +88,10 @@ public class SubmissionActivity extends AppCompatActivity {
         LayoutInflater inflater = LayoutInflater.from(this);
         View v = inflater.inflate(R.layout.alert_dialog, null);
 
+        final AlertDialog alertDialog = new AlertDialog.Builder(this)
+                .setView(v)
+                .create();
+
         Button yesButton = v.findViewById(R.id.yes_btn);
         ImageView closeImage = v.findViewById(R.id.close);
 
@@ -85,6 +100,7 @@ public class SubmissionActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 submit();
+                alertDialog.dismiss();
                 success();
             }
         });
@@ -93,14 +109,11 @@ public class SubmissionActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
+                alertDialog.dismiss();
                 failure();
 
             }
         });
-
-        AlertDialog alertDialog = new AlertDialog.Builder(this)
-                .setView(v)
-                .create();
 
         alertDialog.show();
 

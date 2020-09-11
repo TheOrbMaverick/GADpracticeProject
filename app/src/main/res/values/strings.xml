@@ -7,5 +7,15 @@
     <string name="learning_leaders">Leading Leaders</string>
     <string name="leaders">LEADERS</string>
     <string name="submit_button">Submit</string>
+    <string name="submission_title">Project Submission</string>
+    <string name="first_name_hint">First Name</string>
+    <string name="last_name_hint">Last Name</string>
+    <string name="email_hint">Email Address</string>
+    <string name="project_link_hint">Project on GITHUB (link)</string>
+    <string name="are_you_sure">Are you sure?</string>
+    <string name="submission_successful">Submission successful</string>
+    <string name="submission_unsuccessful">Submission not successful</string>
+    <string name="yes">Yes</string>
+
 
 </resources>

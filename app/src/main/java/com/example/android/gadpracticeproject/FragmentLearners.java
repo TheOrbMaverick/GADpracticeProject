@@ -115,8 +115,6 @@ public class FragmentLearners extends Fragment {
 
                         learners.add(learner);
 
-                        Toast.makeText(getActivity(), "loaded data", Toast.LENGTH_SHORT).show();
-
 
                     } catch (JSONException e) {
                         Toast.makeText(getActivity(), "Cant load data", Toast.LENGTH_SHORT).show();
